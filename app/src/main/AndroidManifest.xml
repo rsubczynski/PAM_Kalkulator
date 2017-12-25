@@ -16,8 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".SimpleCalculatorActivity" />
-        <activity android:name=".AdvanceCalculatorActivity"></activity>
+        <activity android:name=".CalculatorActivity" />
     </application>
 
 </manifest>

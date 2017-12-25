@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void OnSimpleCalcPressed() {
-        startActivity(new Intent(getBaseContext(), SimpleCalculatorActivity.class));
+        startActivity(new Intent(getBaseContext(), CalculatorActivity.class));
 
     }
 }
