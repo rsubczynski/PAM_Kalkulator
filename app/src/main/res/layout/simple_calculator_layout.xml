@@ -10,7 +10,7 @@
         android:layout_height="50dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:text="Button" />
+        android:text="7" />
 
     <Button
         android:id="@+id/button17"
@@ -20,7 +20,7 @@
         android:layout_alignBottom="@+id/button16"
         android:layout_marginStart="30dp"
         android:layout_toEndOf="@+id/button16"
-        android:text="Button" />
+        android:text="8" />
 
     <Button
         android:id="@+id/button18"
@@ -30,7 +30,7 @@
         android:layout_alignBottom="@+id/button17"
         android:layout_marginStart="30dp"
         android:layout_toEndOf="@+id/button17"
-        android:text="Button" />
+        android:text="9" />
 
     <Button
         android:id="@+id/button19"
@@ -39,7 +39,7 @@
         android:layout_alignEnd="@+id/button16"
         android:layout_below="@+id/button16"
         android:layout_marginTop="30dp"
-        android:text="Button" />
+        android:text="4" />
 
     <Button
         android:id="@+id/button20"
@@ -47,7 +47,7 @@
         android:layout_height="50dp"
         android:layout_alignEnd="@+id/button17"
         android:layout_alignTop="@+id/button19"
-        android:text="Button" />
+        android:text="5" />
 
     <Button
         android:id="@+id/button21"
@@ -55,7 +55,7 @@
         android:layout_height="50dp"
         android:layout_alignBottom="@+id/button20"
         android:layout_alignStart="@+id/button18"
-        android:text="Button" />
+        android:text="6" />
 
     <Button
         android:id="@+id/button22"
@@ -64,7 +64,7 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/button19"
         android:layout_marginTop="30dp"
-        android:text="Button" />
+        android:text="1" />
 
     <Button
         android:id="@+id/button23"
@@ -72,7 +72,7 @@
         android:layout_height="50dp"
         android:layout_alignStart="@+id/button20"
         android:layout_alignTop="@+id/button22"
-        android:text="Button" />
+        android:text="2" />
 
     <Button
         android:id="@+id/button24"
@@ -81,7 +81,7 @@
         android:layout_alignBaseline="@+id/button23"
         android:layout_alignBottom="@+id/button23"
         android:layout_alignStart="@+id/button21"
-        android:text="Button" />
+        android:text="3" />
 
     <Button
         android:id="@+id/button25"
@@ -90,7 +90,7 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/button22"
         android:layout_marginTop="30dp"
-        android:text="Button" />
+        android:text="0" />
 
     <Button
         android:id="@+id/button26"
@@ -98,7 +98,7 @@
         android:layout_height="50dp"
         android:layout_alignEnd="@+id/button23"
         android:layout_alignTop="@+id/button25"
-        android:text="Button" />
+        android:text="," />
 
     <Button
         android:id="@+id/button27"
@@ -106,7 +106,7 @@
         android:layout_height="50dp"
         android:layout_alignStart="@+id/button24"
         android:layout_alignTop="@+id/button26"
-        android:text="Button" />
+        android:text="=" />
 
     <TextView
         android:id="@+id/textView"
@@ -125,7 +125,7 @@
         android:layout_alignBottom="@+id/button18"
         android:layout_marginStart="37dp"
         android:layout_toEndOf="@+id/button18"
-        android:text="Button" />
+        android:text="+" />
 
     <Button
         android:id="@+id/button29"
@@ -133,7 +133,7 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/button28"
         android:layout_alignTop="@+id/button21"
-        android:text="Button" />
+        android:text="-" />
 
     <Button
         android:id="@+id/button30"
@@ -141,7 +141,7 @@
         android:layout_height="wrap_content"
         android:layout_alignEnd="@+id/button29"
         android:layout_alignTop="@+id/button24"
-        android:text="Button" />
+        android:text="*" />
 
     <Button
         android:id="@+id/button31"
@@ -149,5 +149,5 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/button27"
         android:layout_alignStart="@+id/button30"
-        android:text="Button" />
+        android:text="/" />
 </RelativeLayout>
