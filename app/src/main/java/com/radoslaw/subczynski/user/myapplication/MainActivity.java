@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+    final static String KEY_CALCULATOR = "calculatorKey";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,11 +27,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void OnAdvanceCalcPressed() {
-//        startActivity(new Intent(getBaseContext(), AdvanceCalculatorActivity.class));
+        ShowCalculator(false);
     }
 
     private void OnSimpleCalcPressed() {
-        startActivity(new Intent(getBaseContext(), CalculatorActivity.class));
+        ShowCalculator(true);
+    }
 
+    private void ShowCalculator(boolean isSimple) {
+        Intent intent = new Intent(getBaseContext(), CalculatorActivity.class);
+        intent.putExtra(KEY_CALCULATOR,isSimple);
+        startActivity(intent);
     }
 }
