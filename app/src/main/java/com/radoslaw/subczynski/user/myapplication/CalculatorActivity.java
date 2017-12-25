@@ -14,6 +14,8 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
 
     private TextView tvResult;
     private String number = "";
+    CalculatorApi calculatorApi;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +27,7 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
             linearLayout.setVisibility(View.GONE);
         }
         initView();
+        calculatorApi = new CalculatorApi();
     }
 
     private void initView() {
@@ -105,24 +108,29 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
                 addText("9");
                 break;
             case R.id.button_comma:
-                addText(",");
+                addText(".");
                 break;
             case R.id.button_add:
+                calculatorApi.add(toFloat());
                 cleanTv();
                 break;
             case R.id.button_minus:
+                calculatorApi.minus(toFloat());
                 cleanTv();
                 break;
             case R.id.button_percent:
                 cleanTv();
                 break;
             case R.id.button_multiplication:
+                calculatorApi.multiplication(toFloat());
                 cleanTv();
                 break;
             case R.id.button_division:
+                calculatorApi.division(toFloat());
                 cleanTv();
                 break;
             case R.id.button_equal:
+                calculatorApi.equal();
                 cleanTv();
                 break;
             case R.id.button_element:
@@ -144,6 +152,12 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
     }
 
     private void cleanTv() {
+        number = "";
         tvResult.setText("");
+    }
+
+    private Float toFloat() {
+
+        return Float.valueOf(String.valueOf(tvResult.getText()));
     }
 }
