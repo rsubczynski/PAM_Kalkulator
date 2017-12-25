@@ -4,7 +4,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -39,6 +38,16 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
         Button button7 = findViewById(R.id.button_7);
         Button button8 = findViewById(R.id.button_8);
         Button button9 = findViewById(R.id.button_9);
+        Button buttonComma = findViewById(R.id.button_comma);
+        Button buttonAdd = findViewById(R.id.button_add);
+        Button buttonMinus = findViewById(R.id.button_minus);
+        Button buttonPercent = findViewById(R.id.button_percent);
+        Button buttonMultiplication = findViewById(R.id.button_multiplication);
+        Button buttonDivision = findViewById(R.id.button_division);
+        Button buttonEquals = findViewById(R.id.button_equal);
+        Button buttonElement = findViewById(R.id.button_element);
+        Button buttonPower = findViewById(R.id.button_power);
+        Button buttonFraction = findViewById(R.id.button_fraction);
         tvResult = findViewById(R.id.et_result);
         button0.setOnClickListener(this);
         button1.setOnClickListener(this);
@@ -50,7 +59,16 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
         button7.setOnClickListener(this);
         button8.setOnClickListener(this);
         button9.setOnClickListener(this);
-
+        buttonComma.setOnClickListener(this);
+        buttonAdd.setOnClickListener(this);
+        buttonMinus.setOnClickListener(this);
+        buttonPercent.setOnClickListener(this);
+        buttonMultiplication.setOnClickListener(this);
+        buttonDivision.setOnClickListener(this);
+        buttonEquals.setOnClickListener(this);
+        buttonElement.setOnClickListener(this);
+        buttonPower.setOnClickListener(this);
+        buttonFraction.setOnClickListener(this);
     }
 
     @Override
@@ -86,7 +104,29 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
             case R.id.button_9:
                 addText("9");
                 break;
+            case R.id.button_comma:
+                addText(",");
+                break;
+            case R.id.button_add:
+                break;
+            case R.id.button_minus:
+                break;
+            case R.id.button_percent:
+                break;
+            case R.id.button_multiplication:
+                break;
+            case R.id.button_division:
+                break;
+            case R.id.button_equal:
+                break;
+            case  R.id.button_element:
+                break;
+            case R.id.button_power:
+                break;
+            case R.id.button_fraction:
+                break;
         }
+
     }
     private void addText(String number){
         this.number += number;
