@@ -21,7 +21,7 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
         setContentView(R.layout.activity_calculator);
         RelativeLayout relativeLayout = findViewById(R.id.relativeLayoutSimpleCalc);
         LinearLayout linearLayout = findViewById(R.id.linearLayoutAdvencedCalc);
-        if(getIntent().getBooleanExtra(KEY_CALCULATOR,false)){
+        if (getIntent().getBooleanExtra(KEY_CALCULATOR, false)) {
             linearLayout.setVisibility(View.GONE);
         }
         initView();
@@ -73,7 +73,7 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
 
     @Override
     public void onClick(View view) {
-        switch(view.getId()){
+        switch (view.getId()) {
             case R.id.button_0:
                 addText("0");
                 break;
@@ -108,28 +108,42 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
                 addText(",");
                 break;
             case R.id.button_add:
+                cleanTv();
                 break;
             case R.id.button_minus:
+                cleanTv();
                 break;
             case R.id.button_percent:
+                cleanTv();
                 break;
             case R.id.button_multiplication:
+                cleanTv();
                 break;
             case R.id.button_division:
+                cleanTv();
                 break;
             case R.id.button_equal:
+                cleanTv();
                 break;
-            case  R.id.button_element:
+            case R.id.button_element:
+                cleanTv();
                 break;
             case R.id.button_power:
+                cleanTv();
                 break;
             case R.id.button_fraction:
+                cleanTv();
                 break;
         }
 
     }
-    private void addText(String number){
+
+    private void addText(String number) {
         this.number += number;
         tvResult.setText(this.number);
+    }
+
+    private void cleanTv() {
+        tvResult.setText("");
     }
 }
