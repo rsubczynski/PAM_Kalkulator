@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void OnAdvanceCalcPressed() {
-        startActivity(new Intent(getBaseContext(), AdvanceCalculatorActivity.class));
+//        startActivity(new Intent(getBaseContext(), AdvanceCalculatorActivity.class));
     }
 
     private void OnSimpleCalcPressed() {
