@@ -7,14 +7,15 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import static com.radoslaw.subczynski.user.myapplication.MainActivity.KEY_CALCULATOR;
 
-public class CalculatorActivity extends AppCompatActivity implements View.OnClickListener {
+public class CalculatorActivity extends AppCompatActivity implements View.OnClickListener, CalculatorApi.CalculatorApiResult {
 
     private TextView tvResult;
     private String number = "";
-    CalculatorApi calculatorApi;
+    private CalculatorApi calculatorApi;
 
 
     @Override
@@ -27,7 +28,7 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
             linearLayout.setVisibility(View.GONE);
         }
         initView();
-        calculatorApi = new CalculatorApi();
+        calculatorApi = new CalculatorApi(this);
     }
 
     private void initView() {
@@ -111,27 +112,29 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
                 addText(".");
                 break;
             case R.id.button_add:
-                calculatorApi.add(toFloat());
+                calculatorApi.add(number);
                 cleanTv();
                 break;
             case R.id.button_minus:
-                calculatorApi.minus(toFloat());
+                calculatorApi.minus(number);
                 cleanTv();
                 break;
             case R.id.button_percent:
                 cleanTv();
                 break;
             case R.id.button_multiplication:
-                calculatorApi.multiplication(toFloat());
+                calculatorApi.multiplication(number);
                 cleanTv();
                 break;
             case R.id.button_division:
-                calculatorApi.division(toFloat());
+                calculatorApi.division(number);
                 cleanTv();
                 break;
             case R.id.button_equal:
-                calculatorApi.equal();
-                cleanTv();
+                if (!tvResult.getText().toString().equals("")) {
+                    calculatorApi.equal();
+                    cleanTv();
+                }
                 break;
             case R.id.button_element:
                 cleanTv();
@@ -156,8 +159,14 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
         tvResult.setText("");
     }
 
-    private Float toFloat() {
+    @Override
+    public void onCalculatedResult(String result) {
+        Toast.makeText(this, result,
+                Toast.LENGTH_LONG).show();
+    }
 
-        return Float.valueOf(String.valueOf(tvResult.getText()));
+    @Override
+    public String getLast() {
+        return tvResult.getText().toString();
     }
 }
