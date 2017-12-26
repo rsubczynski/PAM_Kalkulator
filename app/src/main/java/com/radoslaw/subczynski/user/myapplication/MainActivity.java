@@ -18,8 +18,6 @@ public class MainActivity extends AppCompatActivity {
         tvSimpleCalc.setOnClickListener(view -> OnSimpleCalcPressed());
         tvCalc.setOnClickListener(view -> OnAdvanceCalcPressed());
         tvExit.setOnClickListener(view -> OnExitPressed());
-
-
     }
 
     private void OnExitPressed() {
@@ -36,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void ShowCalculator(boolean isSimple) {
         Intent intent = new Intent(getBaseContext(), CalculatorActivity.class);
-        intent.putExtra(KEY_CALCULATOR,isSimple);
+        intent.putExtra(KEY_CALCULATOR, isSimple);
         startActivity(intent);
     }
 }

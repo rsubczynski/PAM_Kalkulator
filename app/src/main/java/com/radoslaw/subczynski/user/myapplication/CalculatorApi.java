@@ -4,58 +4,57 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import javax.script.ScriptException;
 
-import static com.radoslaw.subczynski.user.myapplication.Operaction.OPERACTION_TYPE_ADD;
-import static com.radoslaw.subczynski.user.myapplication.Operaction.OPERACTION_TYPE_DIVISION;
-import static com.radoslaw.subczynski.user.myapplication.Operaction.OPERACTION_TYPE_MINUS;
-import static com.radoslaw.subczynski.user.myapplication.Operaction.OPERACTION_TYPE_MULTIPLICATIO;
+import static com.radoslaw.subczynski.user.myapplication.Operation.OPERATION_TYPE_ADD;
+import static com.radoslaw.subczynski.user.myapplication.Operation.OPERATION_TYPE_DIVISION;
+import static com.radoslaw.subczynski.user.myapplication.Operation.OPERATION_TYPE_MINUS;
+import static com.radoslaw.subczynski.user.myapplication.Operation.OPERATION_TYPE_MULTIPLICATION;
 
 /**
  * Created by user on 25.12.2017.
  */
 
-public class CalculatorApi {
+class CalculatorApi {
 
     private String tmp = "";
     private CalculatorApiResult listener;
     private static CalculatorApi instance;
 
-    private CalculatorApi(){}
+    private CalculatorApi() {
+    }
 
-    public static CalculatorApi getInstance(){
-        if(instance == null){
+    static CalculatorApi getInstance() {
+        if (instance == null) {
             instance = new CalculatorApi();
         }
         return instance;
     }
 
-    public void setListener(CalculatorApiResult listener) {
+    void setListener(CalculatorApiResult listener) {
         this.listener = listener;
     }
 
 
     void add(String number) {
-        startOperation(OPERACTION_TYPE_ADD, number);
+        startOperation(OPERATION_TYPE_ADD, number);
     }
 
     void minus(String number) {
-        startOperation(OPERACTION_TYPE_MINUS, number);
+        startOperation(OPERATION_TYPE_MINUS, number);
     }
 
     void multiplication(String number) {
-        startOperation(OPERACTION_TYPE_MULTIPLICATIO, number);
+        startOperation(OPERATION_TYPE_MULTIPLICATION, number);
     }
 
     void division(String number) {
-        startOperation(OPERACTION_TYPE_DIVISION, number);
+        startOperation(OPERATION_TYPE_DIVISION, number);
     }
 
     void equal() {
         ScriptEngine engine = new ScriptEngineManager().getEngineByName("rhino");
         if (!listener.getLast().equals("")) {
             tmp += listener.getLast();
-        }
-        else
-        {
+        } else {
             tmp += "0";
         }
 
@@ -72,33 +71,32 @@ public class CalculatorApi {
     private void startOperation(Integer key, String value) {
 
         switch (key) {
-            case OPERACTION_TYPE_ADD:
+            case OPERATION_TYPE_ADD:
                 tmp += value + "+";
                 break;
-            case Operaction.OPERACTION_TYPE_MINUS:
+            case Operation.OPERATION_TYPE_MINUS:
                 tmp += value + "-";
                 break;
-            case Operaction.OPERACTION_TYPE_MULTIPLICATIO:
+            case Operation.OPERATION_TYPE_MULTIPLICATION:
                 tmp += value + "*";
                 break;
-            case Operaction.OPERACTION_TYPE_DIVISION:
+            case Operation.OPERATION_TYPE_DIVISION:
                 tmp += value + "/";
                 break;
         }
     }
 
-    public void sqrt(String number) {
+    void sqrt(String number) {
         listener.onCalculatedResult(String.valueOf(Math.sqrt(Double.parseDouble(number))));
     }
 
-    public void power(String number) {
-        listener.onCalculatedResult(String.valueOf(Math.pow(Double.parseDouble(number),2)));
+    void power(String number) {
+        listener.onCalculatedResult(String.valueOf(Math.pow(Double.parseDouble(number), 2)));
     }
 
     interface CalculatorApiResult {
         void onCalculatedResult(String result);
 
         String getLast();
-
     }
 }
