@@ -28,7 +28,8 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
             linearLayout.setVisibility(View.GONE);
         }
         initView();
-        calculatorApi = new CalculatorApi(this);
+        calculatorApi = CalculatorApi.getInstance();
+        calculatorApi.setListener(this);
     }
 
     private void initView() {
@@ -45,13 +46,11 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
         Button buttonComma = findViewById(R.id.button_comma);
         Button buttonAdd = findViewById(R.id.button_add);
         Button buttonMinus = findViewById(R.id.button_minus);
-        Button buttonPercent = findViewById(R.id.button_percent);
         Button buttonMultiplication = findViewById(R.id.button_multiplication);
         Button buttonDivision = findViewById(R.id.button_division);
         Button buttonEquals = findViewById(R.id.button_equal);
         Button buttonElement = findViewById(R.id.button_element);
         Button buttonPower = findViewById(R.id.button_power);
-        Button buttonFraction = findViewById(R.id.button_fraction);
         tvResult = findViewById(R.id.et_result);
         button0.setOnClickListener(this);
         button1.setOnClickListener(this);
@@ -66,13 +65,11 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
         buttonComma.setOnClickListener(this);
         buttonAdd.setOnClickListener(this);
         buttonMinus.setOnClickListener(this);
-        buttonPercent.setOnClickListener(this);
         buttonMultiplication.setOnClickListener(this);
         buttonDivision.setOnClickListener(this);
         buttonEquals.setOnClickListener(this);
         buttonElement.setOnClickListener(this);
         buttonPower.setOnClickListener(this);
-        buttonFraction.setOnClickListener(this);
     }
 
     @Override
@@ -119,9 +116,6 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
                 calculatorApi.minus(number);
                 cleanTv();
                 break;
-            case R.id.button_percent:
-                cleanTv();
-                break;
             case R.id.button_multiplication:
                 calculatorApi.multiplication(number);
                 cleanTv();
@@ -135,12 +129,11 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
                 cleanTv();
                 break;
             case R.id.button_element:
+                calculatorApi.sqrt(number);
                 cleanTv();
                 break;
             case R.id.button_power:
-                cleanTv();
-                break;
-            case R.id.button_fraction:
+                calculatorApi.power(number);
                 cleanTv();
                 break;
         }

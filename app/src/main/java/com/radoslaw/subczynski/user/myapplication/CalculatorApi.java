@@ -17,10 +17,21 @@ public class CalculatorApi {
 
     private String tmp = "";
     private CalculatorApiResult listener;
+    private static CalculatorApi instance;
 
-    public CalculatorApi(CalculatorApiResult listener) {
+    private CalculatorApi(){}
+
+    public static CalculatorApi getInstance(){
+        if(instance == null){
+            instance = new CalculatorApi();
+        }
+        return instance;
+    }
+
+    public void setListener(CalculatorApiResult listener) {
         this.listener = listener;
     }
+
 
     void add(String number) {
         startOperation(OPERACTION_TYPE_ADD, number);
@@ -74,11 +85,18 @@ public class CalculatorApi {
                 tmp += value + "/";
                 break;
         }
-        System.out.println(tmp);
+    }
+
+    public void sqrt(String number) {
+        listener.onCalculatedResult(String.valueOf(Math.sqrt(Double.parseDouble(number))));
+    }
+
+    public void power(String number) {
+        listener.onCalculatedResult(String.valueOf(Math.pow(Double.parseDouble(number),2)));
     }
 
     interface CalculatorApiResult {
-        void onCalculatedResult(String dupa);
+        void onCalculatedResult(String result);
 
         String getLast();
 
