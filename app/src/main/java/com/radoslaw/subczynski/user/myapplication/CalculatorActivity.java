@@ -131,10 +131,8 @@ public class CalculatorActivity extends AppCompatActivity implements View.OnClic
                 cleanTv();
                 break;
             case R.id.button_equal:
-                if (!tvResult.getText().toString().equals("")) {
-                    calculatorApi.equal();
-                    cleanTv();
-                }
+                calculatorApi.equal();
+                cleanTv();
                 break;
             case R.id.button_element:
                 cleanTv();
